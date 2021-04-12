@@ -6,8 +6,7 @@ class Personagem{
  
     private int manaAtual;
     private int manaMax;
-
-    // Niveis das habilidades
+    
     private int nvH0 = 0;
     private int nvH1 = 0;
     private int nvH2 = 0;
@@ -17,8 +16,7 @@ class Personagem{
     private int manaBaseH1;
     private int manaBaseH2;
     private int manaBaseH3;
-
-    // Verificador que indica se alguma habilidade já foi melhorada no nivel atual
+    
     private int melhoriasDisponiveis = 1;
 
     public Personagem(int manaMax, int manaBaseH0, int manaBaseH1, int manaBaseH2, int manaBaseH3){
@@ -41,14 +39,9 @@ class Personagem{
         if(this.contadorXp >= 100){
             int result = contadorXp / 100;
             this.contadorXp -= 100 * result;
-
-            /* 
-            * Se o contador de xp passou de 100 e o nivel ainda não atingiu 
-            * o limite maximo entao aumenta o nivel
-            */
+            
             if(this.nivel < 25){         
-
-                // Se subiu o nivel, entao acrescenta melhorias disponiveis
+                
                 this.melhoriasDisponiveis += result;
 
                 this.nivel += result;
@@ -94,8 +87,7 @@ class Personagem{
                 }
             break;   
         }        
-
-        // Se foi possivel melhorar habilidade, retira uma melhoria disponivel
+        
         if(retorno){ this.melhoriasDisponiveis--; }
         return retorno;
     }    
